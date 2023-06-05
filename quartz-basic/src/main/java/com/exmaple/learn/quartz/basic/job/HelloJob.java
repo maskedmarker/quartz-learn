@@ -6,12 +6,14 @@ import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+
 public class HelloJob implements Job {
 
-    private static Logger _log = LoggerFactory.getLogger(HelloJob.class);
+    private static Logger logger = LoggerFactory.getLogger(HelloJob.class);
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        _log.info("hello job");
+        logger.info("{} is working at {}", HelloJob.class.getSimpleName(), new Date());
     }
 }
